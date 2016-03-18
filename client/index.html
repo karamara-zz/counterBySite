@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='counterApp'>
+<head>
+		<script type ='text/javascript' src='bower_components/angular/angular.js'></script>
+		<script type ='text/javascript' src = 'bower_components/jquery/dist/jquery.js'></script>
+		<script type ='text/javascript' src='bower_components/bootstrap/dist/js/bootstrap.js'></script>
+		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+	  <script type="text/javascript" src='/angular/app.js'></script>
+	  <script type="text/javascript" src='/angular/factories/counter.js'></script>
+	  <script type="text/javascript" src='/angular/controllers/counters.js'></script>
+	<meta charset="UTF-8">
+	<title>Counter</title>
+</head>
+<body ng-controller='counterController as counterCtrl'>
+	<div class="container">
+		<table class='table' ng-show='counterCtrl.data'>
+			<tr>
+				<th>Site</th>
+				<th>visitors</th>
+			</tr>
+			<tr ng-repeat='data in counterCtrl.data'>
+
+				<td ng-bind= 'data.site'>
+				</td>
+				<td ng-bind='data.counter'>
+				</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

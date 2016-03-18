@@ -1,0 +1,1 @@
+var counterModule = angular.module('counterApp',[]);
