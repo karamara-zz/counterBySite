@@ -4,7 +4,7 @@ module.exports = function(app){
 	app.get('/counter', function(req, res){
 		counter.index(req,res);
 	})
-	app.put('/counter', function(req,res){
+	app.post('/counter', function(req,res){
 		counter.update(req,res);
 	})
 }
