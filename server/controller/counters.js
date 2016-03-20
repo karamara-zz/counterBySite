@@ -8,11 +8,13 @@ module.exports = (function(){
 				if (err){
 					console.log(err);
 				} else if (!counter) {
+					console.log("new site ",req.body.site);
 					var counter = new Counter ({
 						counter: 1,
 						site: req.body.site,
 					})
 				} else {
+					console.log("site already exist, incrementing the counter")
 					counter.counter ++;
 				}
 				console.log(req.ip)
