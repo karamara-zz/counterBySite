@@ -39,6 +39,7 @@ module.exports = (function(){
 									console.log(err);
 								}else {
 									console.log("success");
+									res.json({status: "successfully updated counter"})
 								}
 							})
 						}
