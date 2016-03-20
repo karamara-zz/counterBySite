@@ -4,6 +4,7 @@ var Visitor = mongoose.model('Visitor');
 module.exports = (function(){
 	return {
 		update: function(req, res){
+			console.log(req.body);
 			Counter.findOne({site: req.body.site}, function(err, counter){
 				if (err){
 					console.log(err);
