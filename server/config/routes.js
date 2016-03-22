@@ -7,4 +7,7 @@ module.exports = function(app){
 	app.post('/counter', function(req,res){
 		counter.update(req,res);
 	})
+	app.get('/counter/:site', function(req,res){
+		counter.updateParam(req, res);
+	})
 }

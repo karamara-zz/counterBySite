@@ -53,6 +53,56 @@ module.exports = (function(){
 				})
 			})
 		},
+		updateParam: function(req, res){
+			console.log("req.body: ", req.body);
+			console.log("req.url: ", req.url);
+			console.log("req.type: ", req.params.site);
+			console.log("req.type: ", req.params);
+			Counter.findOne({site: req.params.site}, function(err, counter){
+				if (err){
+					console.log(err);
+				} else if (!counter) {
+					console.log("new site ",req.params.site);
+					var counter = new Counter ({
+						counter: 1,
+						site: req.params.site,
+					})
+				} else {
+					console.log("site already exist, incrementing the counter")
+					counter.counter ++;
+				}
+				console.log(req.ip)
+				Visitor.findOne({IPAddress: req.ip}, function(err, visitor){
+					if (err){
+						console.log("error");
+					} else if (!visitor){
+						console.log("making new visitor")
+						var visitor = new Visitor ({
+							IPAddress : req.ip,
+							visit: 1
+						})
+					} else {
+						visitor.visit++;
+					}
+					console.log("d", visitor)
+					counter.visitor.push(visitor._id)
+					counter.save(function(err){
+						if (err){
+							console.log(err);
+						} else {
+							visitor.save(function(err){
+								if (err){
+									console.log(err);
+								}else {
+									console.log("success");
+									res.json({status: "successfully updated counter"})
+								}
+							})
+						}
+					})
+				})
+			})
+		},
 		// index: function(req, res){
 		// 	Counter.find({}, function(err, counters){
 		// 		if (err){
