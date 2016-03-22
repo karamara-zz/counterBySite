@@ -6,6 +6,8 @@ module.exports = (function(){
 		update: function(req, res){
 			console.log("req.body: ", req.body);
 			console.log("req.url: ", req.url);
+			console.log("req.type: ", req)
+			console.log("req.type: ", req.type)
 			Counter.findOne({site: req.body.site}, function(err, counter){
 				if (err){
 					console.log(err);
