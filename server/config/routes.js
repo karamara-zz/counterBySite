@@ -8,6 +8,6 @@ module.exports = function(app){
 		counter.update(req,res);
 	})
 	app.get('/counter/:site', function(req,res){
-		counter.updateParam(req, res);
+		counter.update(req, res);
 	})
 }
