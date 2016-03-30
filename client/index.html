@@ -16,7 +16,8 @@
 		<table class='table' ng-show='counterCtrl.data'>
 			<tr>
 				<th>Site</th>
-				<th>visitors</th>
+				<th>Visitors</th>
+				<th>Last updated</th>
 			</tr>
 			<tr ng-repeat='data in counterCtrl.data'>
 
@@ -24,6 +25,7 @@
 				</td>
 				<td ng-bind='data.counter'>
 				</td>
+				<td ng-bind="data.updated_at | date:'medium'"></td>
 			</tr>
 		</table>
 	</div>
