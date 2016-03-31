@@ -7,7 +7,7 @@
 		</tr>
 		<tr ng-repeat='visitor in counterCtrl.detail.visitor | orderBy: updated_at:-1'>
 
-			<td ng-bind= 'visitor.IPAddress' ng-click='counterCtrl.siteDetail(detail._id)'>
+			<td ng-bind= 'visitor.IPAddress'>
 			</td>
 			<td ng-bind='visitor.visit'>
 			</td>
