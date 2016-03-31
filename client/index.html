@@ -2,6 +2,7 @@
 <html lang="en" ng-app='counterApp'>
 <head>
 		<script type ='text/javascript' src='bower_components/angular/angular.js'></script>
+		<script type ='text/javascript' src='bower_components/angular-route/angular-route.js'></script>
 		<script type ='text/javascript' src = 'bower_components/jquery/dist/jquery.js'></script>
 		<script type ='text/javascript' src='bower_components/bootstrap/dist/js/bootstrap.js'></script>
 		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
@@ -13,21 +14,11 @@
 </head>
 <body ng-controller='counterController as counterCtrl'>
 	<div class="container">
-		<table class='table' ng-show='counterCtrl.data'>
-			<tr>
-				<th>Site</th>
-				<th>Visitors</th>
-				<th>Last updated</th>
-			</tr>
-			<tr ng-repeat='data in counterCtrl.data'>
-
-				<td ng-bind= 'data.site'>
-				</td>
-				<td ng-bind='data.counter'>
-				</td>
-				<td ng-bind="data.updated_at | date:'medium'"></td>
-			</tr>
-		</table>
+		<div class="row">
+			<h1 class='col-lg-12'>My Site Counter</h1>
+		</div>
+	</div>
+	<div class="container" ng-view >
 	</div>
 </body>
 </html>

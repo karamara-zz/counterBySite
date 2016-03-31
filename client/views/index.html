@@ -1,0 +1,17 @@
+<div class="row">
+	<table class='table table-hover' ng-show='counterCtrl.data'>
+		<tr>
+			<th>Site</th>
+			<th>Visitors</th>
+			<th>Last updated</th>
+		</tr>
+		<tr ng-repeat='data in counterCtrl.data | orderBy: updated_at:-1'>
+
+			<td ng-bind= 'data.site' ng-click='counterCtrl.siteDetail(data._id)'>
+			</td>
+			<td ng-bind='data.counter'>
+			</td>
+			<td ng-bind="data.updated_at | date:'medium'"></td>
+		</tr>
+	</table>
+</div>
