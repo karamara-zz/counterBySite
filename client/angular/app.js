@@ -1,4 +1,4 @@
-var counterModule = angular.module('counterApp',['ngRoute']);
+var counterModule = angular.module('counterApp',['ngRoute', 'ngCookies']);
 counterModule.config(['$routeProvider', function($routeProvider){
 	$routeProvider
 	.when('/',{

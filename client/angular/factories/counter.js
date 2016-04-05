@@ -3,7 +3,9 @@ counterModule.factory('counterFactory', ['$http','$location', function($http, $l
 	if (!factory.detail){
 		$location.path('/')
 	}
-	$http.post('/counter', {site: 'counter site'})
+	factory.counter = function(){
+		$http.post('/counter', {site: 'counter site'})
+	}
 	factory.allCounter = [];
 	factory.index = function(callback){
 		$http.get('/counter').success(function(data){

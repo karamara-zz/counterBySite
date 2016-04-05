@@ -1,5 +1,11 @@
-counterModule.controller('counterController', [ 'counterFactory', function(counterFactory){
+counterModule.controller('counterController', [ 'counterFactory',"$cookies", function(counterFactory, $cookies){
 	this.data = [];
+	var visited = $cookies.get('visited');
+	console.log(visited)
+	if (!visited){
+	counterFactory.counter();
+	}
+	$cookies.put('visited', 'true');
 	var _this = this;
 	counterFactory.index(function(data){
 		console.log(data)
