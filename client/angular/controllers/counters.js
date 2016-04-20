@@ -2,10 +2,9 @@ counterModule.controller('counterController', [ 'counterFactory',"$cookies", fun
 	this.data = [];
 	var visited = $cookies.get('visited');
 	console.log(visited)
-	if (!visited){
-	counterFactory.counter();
-	}
-	$cookies.put('visited', 'true');
+	counterFactory.counter(function(data){
+		$cookies.put('visited', data.id)
+	});
 	var _this = this;
 	counterFactory.index(function(data){
 		console.log(data)

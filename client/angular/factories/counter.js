@@ -3,15 +3,21 @@ counterModule.factory('counterFactory', ['$http','$location', function($http, $l
 	if (!factory.detail){
 		$location.path('/')
 	}
-	factory.counter = function(){
-		$http.post('/counter', {site: 'counter site'})
+	factory.counter = function(callback){
+		$http.post('/counter', {site: 'counter site'}).success(function(data){
+			console.log(data);
+			callback(data);
+		})
 	}
 	factory.allCounter = [];
 	factory.index = function(callback){
 		$http.get('/counter').success(function(data){
 			console.log(data);
 			factory.allCounter = data;
-			callback(data)
+			console.log(callback)
+			if (callback){
+				callback(data)
+			};
 		})
 	}
 	factory.show = function(id, callback){
